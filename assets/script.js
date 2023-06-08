@@ -3,18 +3,20 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  // Prompt for password criteria
+  // Prompt for password length
   var length = prompt("What length would you like? (between 8 and 128 characters)");
-  var numbers = confirm("Would you like to include numbers?");
-  var uppercase = confirm("Shall I include uppercase letters in the password?");
-  var lowercase = confirm("How do we feel about adding lowercase letters in the password?");
-  var symbols = confirm("Do we want to add special characters in the password?");
 
   // Validate the input
   if (length < 8 || length > 128) {
     alert("Invalid password length! Please enter a length between 8 and 128 characters.");
-    return;
+    return; // Exit the function if the length is invalid
   }
+
+  // Prompt for password criteria
+  var numbers = confirm("Would you like to include numbers?");
+  var uppercase = confirm("Shall I include uppercase letters in the password?");
+  var lowercase = confirm("How do we feel about adding lowercase letters in the password?");
+  var symbols = confirm("Do we want to add special characters in the password?");
 
   if (!numbers && !uppercase && !lowercase && !symbols) {
     alert("You must select at least one character type!");
